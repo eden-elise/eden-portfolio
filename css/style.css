@@ -1,0 +1,100 @@
+body {
+    font-family:'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ebd7ce;
+    color: #837e84
+}
+
+header {
+    background-color: #cdadab;
+    padding: 1rem;
+    border-bottom: 1px solid #917f88;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #836871;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #917f88;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.about-me {
+    text-align: left;
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    line-height: 1.6;
+}
+
+.about-photo {
+    display: block;
+    max-width: 600px;
+    border-radius: 8px;
+    margin: 1rem auto;
+}
+
+.contact {
+    text-align: left;
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    line-height: 1.6;
+}
+
+.contact-list {
+    padding-left: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .contact-list li {
+    margin: 0.5rem 0;
+    list-style: none;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .contact-list a {
+    color: #836871;
+    text-decoration: none;
+  }
+  
+  .contact-list a:hover {
+    text-decoration: underline;
+    color: #917f88;
+  }
+
+  a {
+    color: #917f88; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #cdadab; 
+    text-decoration: underline;
+  }
+  
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #836871;
+    color: #ebd7ce;
+    font-size: 0.9rem;
+}
