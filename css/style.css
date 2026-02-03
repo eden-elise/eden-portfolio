@@ -61,36 +61,36 @@ nav a:hover {
     padding-left: 2rem;
     margin-top: 1rem;
   }
-  
+
   .contact-list li {
     margin: 0.5rem 0;
     list-style: none;
     position: relative;
     padding-left: 1.5rem;
   }
-  
+
   .contact-list a {
     color: #836871;
     text-decoration: none;
   }
-  
+
   .contact-list a:hover {
     text-decoration: underline;
     color: #917f88;
   }
 
   a {
-    color: #917f88; 
+    color: #917f88;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
   }
-  
+
   a:hover {
-    color: #cdadab; 
+    color: #cdadab;
     text-decoration: underline;
   }
-  
+
 footer {
     text-align: center;
     padding: 1rem;

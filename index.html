@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=divice-width, initial-scale=1.0" />
-        <title>Eden Tripp Portfolio</title>
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eden Tripp Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
 
-    <body>
-        <header>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="about.html">About me!</a>
-                <a href="#">Projects</a>
-                <a href="#">Building my PC</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </header>
+<body>
+<header>
+    <h1>Eden Tripp</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About me!</a>
+        <a href="projects.html">Projects</a>
+        <a href="#">Building my PC</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-        <main>
-            <section class="hero">
-                <h1>Hi! My name is Eden Tripp</h1>
-                <p>I am a computer science and mathematics student with a focus in cybersecurity</p>
-            </section>
-        </main>
+<main>
+    <section class="hero">
+        <h2 id="greeting">Hello!</h2>
+        <p>I am a computer science and mathematics student with a focus in cybersecurity. I love solving problems and building things that make a difference.</p>
+    </section>
 
-        <footer>
-            <p>404: Boring Footer Not Found. This one's by Eden Tripp.</p>
-        </footer>
+    <section class="skills">
+        <h2>Skills & Interests</h2>
+        <ul>
+            <li>Cybersecurity</li>
+            <li>Mathematics</li>
+            <li>Programming</li>
+            <li>Building PCs</li>
+        </ul>
+    </section>
+</main>
 
-    </body>
+<footer>
+    <p>404: Boring Footer Not Found. This one's by Eden Tripp.</p>
+</footer>
+
+<script>
+    const hour = new Date().getHours();
+    const greeting = document.getElementById('greeting');
+
+    if (hour < 12) {
+        greeting.textContent = "Good morning!";
+    } else if (hour < 18) {
+        greeting.textContent = "Good afternoon!";
+    } else {
+        greeting.textContent = "Good evening!";
+    }
+</script>
+
+</body>
 </html>
