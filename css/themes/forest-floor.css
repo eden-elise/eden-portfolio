@@ -1,0 +1,167 @@
+/* ==========================================================
+   FOREST FLOOR THEME
+   Grounded, earthy, organic.
+
+   Palette:
+   #2D3A2E — deep moss green
+   #5C7A5E — sage green
+   #D4C9B0 — warm sandstone
+   #F5F1EB — soft cream
+   #8B7355 — warm bark brown
+   ========================================================== */
+
+[data-theme="forest-floor"] {
+    --color-bg-primary:      #F5F1EB;
+    --color-bg-secondary:    #ede8df;
+    --color-bg-accent:       #D4C9B0;
+    --color-text-primary:    #2D3A2E;
+    --color-text-secondary:  #4a5a4c;
+    --color-text-heading:    #2D3A2E;
+    --color-accent:          #5C7A5E;
+    --color-accent-hover:    #6d8e70;
+    --color-link:            #5C7A5E;
+    --color-link-hover:      #2D3A2E;
+    --color-header-bg:       #D4C9B0;
+    --color-header-text:     #2D3A2E;
+    --color-footer-bg:       #2D3A2E;
+    --color-footer-text:     #D4C9B0;
+    --color-border:          #8B7355;
+    --color-shadow:          rgba(45, 58, 46, 0.15);
+    --color-overlay:         rgba(92, 122, 94, 0.08);
+
+    --font-primary:          'Palatino Linotype', Palatino, 'Book Antiqua', serif;
+    --font-heading:          'Trebuchet MS', 'Lucida Grande', sans-serif;
+    --heading-font-style:    normal;
+    --heading-text-transform: uppercase;
+    --heading-letter-spacing: var(--letter-spacing-wider);
+
+    --nav-text-transform:    uppercase;
+    --nav-letter-spacing:    var(--letter-spacing-wide);
+    --nav-font-weight:       var(--font-weight-medium);
+
+    --card-radius:           var(--border-radius-sm);
+    --list-marker:           "\1F33F";
+    --list-marker-color:     #5C7A5E;
+    --header-border-bottom:  3px solid #8B7355;
+    --link-underline-offset: 0.3em;
+}
+
+[data-theme="forest-floor"] body {
+    background-color: #F5F1EB;
+    position: relative;
+}
+
+[data-theme="forest-floor"] body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: repeating-conic-gradient(
+            rgba(139, 115, 85, 0.03) 0% 25%,
+            transparent 0% 50%
+    );
+    background-size: 4px 4px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+[data-theme="forest-floor"] header,
+[data-theme="forest-floor"] main,
+[data-theme="forest-floor"] footer {
+    position: relative;
+    z-index: 1;
+}
+
+[data-theme="forest-floor"] header {
+    background: linear-gradient(180deg, #D4C9B0 0%, #c7baa0 100%);
+    border-bottom: 3px solid #8B7355;
+    box-shadow: 0 2px 0 rgba(139, 115, 85, 0.1);
+}
+
+[data-theme="forest-floor"] h2 {
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+[data-theme="forest-floor"] h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #8B7355;
+    margin-top: var(--spacing-sm);
+    border-radius: 0;
+}
+
+[data-theme="forest-floor"] nav a {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-bottom: 2px solid transparent;
+    font-size: var(--font-size-sm);
+}
+
+[data-theme="forest-floor"] nav a:hover {
+    border-bottom-color: #5C7A5E;
+    color: #2D3A2E;
+}
+
+[data-theme="forest-floor"] .hero,
+[data-theme="forest-floor"] .about-me,
+[data-theme="forest-floor"] .contact,
+[data-theme="forest-floor"] .projects,
+[data-theme="forest-floor"] .skills {
+    border-left: 4px solid #5C7A5E;
+    padding-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    background-color: transparent;
+    transition: border-color var(--transition-base) var(--transition-easing),
+    background-color var(--transition-base) var(--transition-easing);
+}
+
+[data-theme="forest-floor"] .hero:hover,
+[data-theme="forest-floor"] .about-me:hover,
+[data-theme="forest-floor"] .contact:hover,
+[data-theme="forest-floor"] .projects:hover,
+[data-theme="forest-floor"] .skills:hover {
+    background-color: var(--color-overlay);
+    border-left-color: #8B7355;
+}
+
+[data-theme="forest-floor"] .about-photo {
+    border: 3px solid #8B7355;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 4px 4px 0 rgba(45, 58, 46, 0.12);
+}
+
+[data-theme="forest-floor"] a:hover {
+    text-decoration-color: #8B7355;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1.5px;
+}
+
+[data-theme="forest-floor"] footer {
+    background: linear-gradient(180deg, #384e3a 0%, #2D3A2E 100%);
+    border-top: 3px solid #8B7355;
+}
+
+@keyframes forestGrowIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+[data-theme="forest-floor"] main section {
+    animation: forestGrowIn 0.7s var(--transition-easing-out) both;
+}
+
+[data-theme="forest-floor"] main section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+[data-theme="forest-floor"] .skills li::before,
+[data-theme="forest-floor"] .projects li::before {
+    content: "\25B8";
+    color: #5C7A5E;
+}
+
+[data-theme="forest-floor"] .contact-list li {
+    border-bottom: 1px dashed rgba(139, 115, 85, 0.3);
+    padding-bottom: var(--spacing-sm);
+}
