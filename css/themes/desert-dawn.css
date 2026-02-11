@@ -114,7 +114,8 @@
 [data-theme="desert-dawn"] .about-me,
 [data-theme="desert-dawn"] .contact,
 [data-theme="desert-dawn"] .projects,
-[data-theme="desert-dawn"] .skills {
+[data-theme="desert-dawn"] .skills,
+[data-theme="desert-dawn"] .highlights {
     margin-bottom: var(--spacing-xl);
     padding: var(--spacing-2xl) var(--spacing-xl);
     position: relative;

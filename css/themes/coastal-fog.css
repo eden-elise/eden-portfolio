@@ -125,7 +125,8 @@
 [data-theme="coastal-fog"] .about-me,
 [data-theme="coastal-fog"] .contact,
 [data-theme="coastal-fog"] .projects,
-[data-theme="coastal-fog"] .skills {
+[data-theme="coastal-fog"] .skills,
+[data-theme="coastal-fog"] .highlights {
     margin-bottom: var(--spacing-2xl);
     padding: var(--spacing-2xl) 0;
     border-bottom: 1px solid rgba(196, 185, 168, 0.4);

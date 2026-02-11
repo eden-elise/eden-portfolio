@@ -107,7 +107,8 @@
 [data-theme="forest-floor"] .about-me,
 [data-theme="forest-floor"] .contact,
 [data-theme="forest-floor"] .projects,
-[data-theme="forest-floor"] .skills {
+[data-theme="forest-floor"] .skills,
+[data-theme="forest-floor"] .highlights {
     border-left: 4px solid #5C7A5E;
     padding-left: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);

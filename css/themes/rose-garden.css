@@ -70,7 +70,8 @@
 [data-theme="rose-garden"] .about-me,
 [data-theme="rose-garden"] .contact,
 [data-theme="rose-garden"] .projects,
-[data-theme="rose-garden"] .skills {
+[data-theme="rose-garden"] .skills,
+[data-theme="rose-garden"] .highlights {
     background-color: var(--color-bg-secondary);
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-2xl) var(--spacing-xl);
