@@ -51,6 +51,14 @@ nav {
     padding: var(--spacing-xs) 0;
 }
 
+nav ul {
+    display: flex;
+    gap: var(--nav-gap);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
 /* ----- Main Content ----- */
 
 main {
@@ -62,6 +70,21 @@ main {
     padding: var(--spacing-md);
 }
 
+#home-content {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+#home-content .hero,
+#home-content .highlights {
+    flex: 1;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
 /* ----- Sections ----- */
 
 section {
@@ -72,11 +95,13 @@ section {
 .about-me,
 .contact,
 .projects,
-.skills {
+.skills,
+.highlights {
     max-width: var(--max-width-narrow);
     margin-left: auto;
     margin-right: auto;
 }
+
 
 /* ----- Footer ----- */
 
@@ -112,5 +137,9 @@ footer {
 
     section {
         padding: var(--spacing-xl) var(--spacing-sm);
+    }
+
+    #home-content {
+        flex-direction: column;
     }
 }
