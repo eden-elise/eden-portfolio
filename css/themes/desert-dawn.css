@@ -1,0 +1,205 @@
+/* ==========================================================
+   DESERT DAWN THEME
+   Warm, bold, geometric.
+
+   Palette:
+   #4A3728 — dark umber
+   #C27B4A — terracotta
+   #D9C4A1 — warm sand
+   #F7F3ED — desert white
+   #8C7B6B — dusty stone
+   ========================================================== */
+
+[data-theme="desert-dawn"] {
+    --color-bg-primary:      #F7F3ED;
+    --color-bg-secondary:    #f0ebe2;
+    --color-bg-accent:       #D9C4A1;
+    --color-text-primary:    #4A3728;
+    --color-text-secondary:  #6b5b4e;
+    --color-text-heading:    #4A3728;
+    --color-accent:          #C27B4A;
+    --color-accent-hover:    #d48b58;
+    --color-link:            #C27B4A;
+    --color-link-hover:      #4A3728;
+    --color-header-bg:       #D9C4A1;
+    --color-header-text:     #4A3728;
+    --color-footer-bg:       #4A3728;
+    --color-footer-text:     #D9C4A1;
+    --color-border:          #8C7B6B;
+    --color-shadow:          rgba(74, 55, 40, 0.15);
+    --color-overlay:         rgba(194, 123, 74, 0.06);
+
+    --font-primary:          'Trebuchet MS', 'Lucida Grande', sans-serif;
+    --font-heading:          Impact, 'Arial Black', 'Trebuchet MS', sans-serif;
+    --heading-font-style:    normal;
+    --heading-text-transform: uppercase;
+    --heading-letter-spacing: var(--letter-spacing-wide);
+
+    --nav-text-transform:    uppercase;
+    --nav-letter-spacing:    var(--letter-spacing-wide);
+    --nav-font-weight:       var(--font-weight-bold);
+
+    --card-radius:           var(--border-radius-none);
+    --list-marker:           "\25C6";
+    --list-marker-color:     #C27B4A;
+    --header-border-bottom:  4px solid #C27B4A;
+    --link-underline-offset: 0.25em;
+}
+
+[data-theme="desert-dawn"] body {
+    background-color: #F7F3ED;
+    background-image: radial-gradient(
+            ellipse at 50% 0%,
+            rgba(217, 196, 161, 0.3) 0%,
+            transparent 60%
+    );
+    background-attachment: fixed;
+}
+
+[data-theme="desert-dawn"] header {
+    background: #D9C4A1;
+    border-bottom: 4px solid #C27B4A;
+    position: relative;
+}
+
+[data-theme="desert-dawn"] header::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: repeating-linear-gradient(
+            90deg,
+            #C27B4A 0px,
+            #C27B4A 12px,
+            transparent 12px,
+            transparent 24px
+    );
+}
+
+[data-theme="desert-dawn"] header h1 {
+    font-family: Impact, 'Arial Black', sans-serif;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    color: #4A3728;
+}
+
+[data-theme="desert-dawn"] h2 {
+    font-size: var(--font-size-xl);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+    padding-left: var(--spacing-md);
+    border-left: 5px solid #C27B4A;
+    margin-bottom: var(--spacing-lg);
+}
+
+[data-theme="desert-dawn"] nav a {
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 2px solid transparent;
+    transition: border-color var(--transition-base) var(--transition-easing),
+    color var(--transition-base) var(--transition-easing);
+}
+
+[data-theme="desert-dawn"] nav a:hover {
+    border-color: #C27B4A;
+    color: #C27B4A;
+}
+
+[data-theme="desert-dawn"] .hero,
+[data-theme="desert-dawn"] .about-me,
+[data-theme="desert-dawn"] .contact,
+[data-theme="desert-dawn"] .projects,
+[data-theme="desert-dawn"] .skills {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-2xl) var(--spacing-xl);
+    position: relative;
+    background-color: transparent;
+}
+
+[data-theme="desert-dawn"] .about-me,
+[data-theme="desert-dawn"] .contact,
+[data-theme="desert-dawn"] .projects,
+[data-theme="desert-dawn"] .skills {
+    border-top: 2px solid #D9C4A1;
+}
+
+[data-theme="desert-dawn"] .about-me::before,
+[data-theme="desert-dawn"] .contact::before,
+[data-theme="desert-dawn"] .projects::before,
+[data-theme="desert-dawn"] .skills::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #C27B4A;
+}
+
+[data-theme="desert-dawn"] .skills li,
+[data-theme="desert-dawn"] .projects li,
+[data-theme="desert-dawn"] .contact-list li {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    transition: background-color var(--transition-fast) var(--transition-easing),
+    padding-left var(--transition-fast) var(--transition-easing);
+}
+
+[data-theme="desert-dawn"] .skills li:hover,
+[data-theme="desert-dawn"] .projects li:hover,
+[data-theme="desert-dawn"] .contact-list li:hover {
+    background-color: rgba(194, 123, 74, 0.08);
+    padding-left: var(--spacing-lg);
+}
+
+[data-theme="desert-dawn"] .about-photo {
+    border: 4px solid #D9C4A1;
+    border-radius: 0;
+    box-shadow: 8px 8px 0 rgba(74, 55, 40, 0.1);
+}
+
+[data-theme="desert-dawn"] a:hover {
+    text-decoration: underline;
+    text-decoration-color: #C27B4A;
+    text-decoration-thickness: 2px;
+}
+
+[data-theme="desert-dawn"] footer {
+    background: #4A3728;
+    border-top: 4px solid #C27B4A;
+    position: relative;
+}
+
+[data-theme="desert-dawn"] footer::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: repeating-linear-gradient(
+            90deg,
+            #C27B4A 0px,
+            #C27B4A 12px,
+            transparent 12px,
+            transparent 24px
+    );
+}
+
+@keyframes desertSlideIn {
+    from { opacity: 0; transform: translateX(-16px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+[data-theme="desert-dawn"] main section {
+    animation: desertSlideIn 0.5s var(--transition-easing-out) both;
+}
+
+[data-theme="desert-dawn"] main section:nth-child(2) {
+    animation-delay: 0.1s;
+}
