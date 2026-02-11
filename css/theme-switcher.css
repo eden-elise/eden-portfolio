@@ -1,0 +1,117 @@
+/* ==========================================================
+   theme-switcher.css — Theme Switcher Widget
+   Fixed bottom-right corner, color swatch buttons with tooltips.
+   ========================================================== */
+
+.theme-switcher {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background-color: var(--color-bg-secondary);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--border-radius-full);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    box-shadow: var(--shadow-md);
+    transition: box-shadow var(--transition-base) var(--transition-easing),
+    background-color var(--transition-base) var(--transition-easing),
+    border-color var(--transition-base) var(--transition-easing);
+}
+
+.theme-switcher:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-switcher__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.theme-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform var(--transition-fast) var(--transition-easing),
+    border-color var(--transition-fast) var(--transition-easing),
+    box-shadow var(--transition-fast) var(--transition-easing);
+    position: relative;
+}
+
+.theme-btn:hover {
+    transform: scale(1.15);
+}
+
+.theme-btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.theme-btn.active {
+    border-color: var(--color-text-primary);
+    box-shadow: 0 0 0 2px var(--color-bg-secondary);
+}
+
+.theme-btn[data-theme="rose-garden"] {
+    background: linear-gradient(135deg, #cdadab 50%, #836871 50%);
+}
+
+.theme-btn[data-theme="forest-floor"] {
+    background: linear-gradient(135deg, #5C7A5E 50%, #8B7355 50%);
+}
+
+.theme-btn[data-theme="coastal-fog"] {
+    background: linear-gradient(135deg, #7A9BAE 50%, #C4B9A8 50%);
+}
+
+.theme-btn[data-theme="desert-dawn"] {
+    background: linear-gradient(135deg, #C27B4A 50%, #D9C4A1 50%);
+}
+
+.theme-btn::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast) var(--transition-easing);
+}
+
+.theme-btn:hover::after {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .theme-switcher {
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+        flex-direction: column;
+        border-radius: var(--border-radius-lg);
+        padding: var(--spacing-sm) var(--spacing-xs);
+    }
+
+    .theme-btn::after {
+        bottom: auto;
+        left: auto;
+        right: calc(100% + 8px);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
