@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Eden Tripp</title>
     <link rel="stylesheet" href="../css/main_style.css" />
 </head>
-
 <body>
+
 <header>
-    <h1>Eden Tripp</h1>
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About me!</a>
-        <a href="projects.html">Projects</a>
-        <a href="#">Building my PC</a>
-        <a href="contact.html">Contact</a>
+    <h1><a href="home.html">Eden Tripp</a></h1>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html" aria-current="page">Projects</a></li>
+            <li><a href="building_pc.html">Building My PC</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
 </header>
 
-<main>
-    <section class="projects">
-        <h2>My Work</h2>
-        <p>Here are some projects I'm proud of:</p>
-        <ul>
-            <li><a href="https://drive.google.com/file/d/1uj9zdbgO20JMlHA6HWY_FnWqvxMcrEOn/view?usp=sharing" target="_blank">MCM Competition Paper</a> — Mathematical modeling research on smartphone battery prediction</li>
-            <li><a href="https://www.canva.com/design/DAGxA5pcNVM/u2UO9bR1yuTxH-8HRfVgOA/edit?utm_content=DAGxA5pcNVM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">Summer Research Presentation</a></li>
-            <li><a href="https://github.com/eden-elise" target="_blank">GitHub Profile</a> — View my code and open-source contributions</li>
-        </ul>
+<main id="projects-content">
+    <h2>My Work</h2>
+    <p>Here are some projects I'm proud of:</p>
+
+    <section id="project-list" class="project-list">
+        <article id="project-mcm" class="project-card">
+            <h3>MCM Competition Paper</h3>
+            <p>Mathematical modeling research on smartphone battery prediction,
+                completed as part of the Mathematical Contest in Modeling.</p>
+            <p><a href="https://drive.google.com/file/d/1uj9zdbgO20JMlHA6HWY_FnWqvxMcrEOn/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer">View paper</a></p>
+        </article>
+
+        <article id="project-summer-research" class="project-card">
+            <h3>Summer Research Presentation</h3>
+            <p>A presentation summarizing my summer research work.</p>
+            <p><a href="https://www.canva.com/design/DAGxA5pcNVM/u2UO9bR1yuTxH-8HRfVgOA/edit?utm_content=DAGxA5pcNVM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                  target="_blank"
+                  rel="noopener noreferrer">View presentation</a></p>
+        </article>
+
+        <article id="project-github" class="project-card">
+            <h3>GitHub Profile</h3>
+            <p>View my code and open-source contributions.</p>
+            <p><a href="https://github.com/eden-elise"
+                  target="_blank"
+                  rel="noopener noreferrer">Visit my GitHub</a></p>
+        </article>
     </section>
 </main>
 
 <footer>
-    <p>404: Boring Footer Not Found. This one's by Eden Tripp.</p>
+    <p>&copy; Eden Tripp</p>
 </footer>
 
 </body>
