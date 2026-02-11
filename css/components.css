@@ -1,0 +1,210 @@
+/* ==========================================================
+   styles for reusable UI components, values reference
+   design tokens so themes can restyle everything.
+   ========================================================== */
+
+/* ----- typography ----- */
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text-heading);
+    line-height: var(--line-height-tight);
+    font-style: var(--heading-font-style);
+    text-transform: var(--heading-text-transform);
+    letter-spacing: var(--heading-letter-spacing);
+    text-shadow: var(--text-shadow-heading);
+}
+
+h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-base);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* ----- links ----- */
+
+a {
+    color: var(--color-link);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    text-underline-offset: var(--link-underline-offset);
+    transition: color var(--transition-base) var(--transition-easing),
+    text-decoration-color var(--transition-base) var(--transition-easing);
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+/* ----- navigation links ----- */
+
+nav a {
+    color: var(--color-text-heading);
+    font-weight: var(--nav-font-weight);
+    text-decoration: none;
+    text-transform: var(--nav-text-transform);
+    letter-spacing: var(--nav-letter-spacing);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: color var(--transition-base) var(--transition-easing),
+    background-color var(--transition-base) var(--transition-easing),
+    transform var(--transition-base) var(--transition-easing);
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--color-accent-hover);
+    text-decoration: none;
+}
+
+/* ----- hero section ----- */
+
+.hero {
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero p {
+    font-size: var(--font-size-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----- about section ----- */
+
+.about-me {
+    line-height: var(--line-height-loose);
+}
+
+.about-me h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-photo {
+    max-width: var(--max-width-photo);
+    border-radius: var(--card-radius);
+    margin: var(--spacing-lg) auto;
+    box-shadow: var(--shadow-md);
+}
+
+/* ----- skills section ----- */
+
+.skills {
+    margin-top: var(--spacing-xl);
+}
+
+.skills h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.skills ul {
+    padding-left: var(--spacing-lg);
+}
+
+.skills li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-secondary);
+}
+
+.skills li::before {
+    content: var(--list-marker, "\2022");
+    position: absolute;
+    left: 0;
+    color: var(--list-marker-color);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ----- projects section ----- */
+
+.projects h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.projects p {
+    margin-bottom: var(--spacing-lg);
+}
+
+.projects ul {
+    padding-left: var(--spacing-lg);
+}
+
+.projects li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-base);
+}
+
+.projects li::before {
+    content: var(--list-marker, "\2022");
+    position: absolute;
+    left: 0;
+    color: var(--list-marker-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.projects li a {
+    font-weight: var(--font-weight-bold);
+}
+
+/* ----- contact section ----- */
+
+.contact h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact p {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-list {
+    padding-left: var(--spacing-lg);
+}
+
+.contact-list li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+}
+
+.contact-list a {
+    color: var(--color-link);
+    transition: color var(--transition-base) var(--transition-easing);
+}
+
+.contact-list a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+/* ----- footer links ----- */
+
+footer a {
+    color: var(--color-footer-text);
+    text-decoration: underline;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
