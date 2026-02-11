@@ -1,0 +1,116 @@
+/* ==========================================================
+   layout.css — Structural Layout
+   Page structure, grids, containers, and responsive layout.
+   Uses design tokens exclusively — no hardcoded values.
+   ========================================================== */
+
+/* ----- Page Shell ----- */
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    background-image: var(--body-bg-image);
+    background-attachment: var(--body-bg-attachment);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ----- Header ----- */
+
+header {
+    background-color: var(--color-header-bg);
+    color: var(--color-header-text);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: var(--header-border-bottom);
+    position: relative;
+}
+
+header h1 {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-heading);
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: var(--heading-letter-spacing);
+    text-transform: var(--heading-text-transform);
+    text-shadow: var(--text-shadow-heading);
+}
+
+/* ----- Navigation ----- */
+
+nav {
+    display: flex;
+    gap: var(--nav-gap);
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: var(--spacing-xs) 0;
+}
+
+/* ----- Main Content ----- */
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--max-width-content);
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--spacing-md);
+}
+
+/* ----- Sections ----- */
+
+section {
+    padding: var(--section-padding);
+}
+
+.hero,
+.about-me,
+.contact,
+.projects,
+.skills {
+    max-width: var(--max-width-narrow);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----- Footer ----- */
+
+footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    text-align: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    margin-top: auto;
+}
+
+/* ==========================================================
+   Responsive Breakpoints
+   ========================================================== */
+
+@media (max-width: 600px) {
+    header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    nav {
+        gap: var(--spacing-md);
+    }
+
+    header h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    main {
+        padding: var(--spacing-sm);
+    }
+
+    section {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+}
