@@ -1,41 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Eden Tripp</title>
-  <link rel="stylesheet" href="../css/main_style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Eden Tripp</title>
+    <link rel="stylesheet" href="../css/main_style.css" />
 </head>
 <body>
 
-  <header>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="#">Building my PC</a>
-      <a href="contact.html">Contact</a>
+<header>
+    <h1><a href="home.html">Eden Tripp</a></h1>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="building_pc.html">Building My PC</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
-  </header>
+</header>
 
-  <main>
-    <section class="about-me">
-      <h1>About Me</h1>
-      <p>Hello! I'm Eden Tripp, I am a student at University of San Diego pursuing a degree in Computer Science and Mathematics with a concentration in Cybersecurity.</p>
-      <p>I enjoy spending my nights playing my favorite video games, reading a good book, or watching youtube videos to learn something new.  
-        I have found a love in building technical projects and solving some good math problems, always with a side of a questionable amount of tea.</p>
-      <p>When I’m not learning or coding, you might find me hanging out with my sorority sisters, working on open-source projects, facetiming my family, reading about quantum mechanics or ciphers, or at my favorite kickboxing class. 
-        I adore family dinners(especially when its sushi) whether they are with my immediate family or my family of friends at school! </p>
-        <p>
-            📄 <a href="../assets/resume/edentripp-resume.pdf" target="_blank">Click here to view my resume</a>
-        </p>
-      <img src="../assets/images/learn%20to%20rest,%20not%20quit.png" alt="Collage of Eden" class="about-photo"/>
+<main id="about-content">
+    <section id="intro" class="about-intro">
+        <h2>About Me</h2>
+        <img src="../assets/images/learn%20to%20rest,%20not%20quit.png"
+             alt="Photo collage of Eden Tripp"
+             class="about-photo" />
+        <p>Hello! I'm Eden Tripp, a student at the University of San Diego
+            pursuing a degree in Computer Science and Mathematics with a
+            concentration in Cybersecurity.</p>
     </section>
-  </main>
 
-  <footer>
-    <p>With love and care, written by Eden Tripp</p>
-  </footer>
+    <section id="interests" class="about-interests">
+        <h2>Interests</h2>
+        <p>I enjoy spending my nights playing my favorite video games,
+            reading a good book, or watching YouTube videos to learn
+            something new. I've found a love in building technical projects
+            and solving math problems, always with a questionable amount
+            of tea on the side.</p>
+    </section>
+
+    <section id="beyond-the-code" class="about-life">
+        <h2>Beyond the Code</h2>
+        <p>When I'm not learning or coding, you might find me hanging out
+            with my sorority sisters, FaceTiming my family, reading about
+            quantum mechanics or ciphers, or at my favorite kickboxing class.
+            I adore family dinners (especially sushi) whether with my
+            immediate family or my family of friends at school.</p>
+    </section>
+
+    <section id="resume" class="about-resume">
+        <h2>Resume</h2>
+        <p><a href="../assets/resume/edentripp-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer">View my resume (PDF)</a></p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; Eden Tripp</p>
+</footer>
 
 </body>
 </html>
