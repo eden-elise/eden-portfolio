@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eden Tripp Portfolio</title>
+    <title>Eden Tripp | Portfolio</title>
     <link rel="stylesheet" href="../css/main_style.css" />
 </head>
-
 <body>
+
 <header>
-    <h1>Eden Tripp</h1>
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About me!</a>
-        <a href="projects.html">Projects</a>
-        <a href="#">Building my PC</a>
-        <a href="contact.html">Contact</a>
+    <h1><a href="home.html">Eden Tripp</a></h1>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="home.html" aria-current="page">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="building_pc.html">Building My PC</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
 </header>
 
-<main>
-    <section id="greet" class="hero">
+<main id="home-content">
+    <section id="hero" class="hero">
         <h2 id="greeting">Hello!</h2>
-        <p>I am a computer science and mathematics student with a focus in cybersecurity. I love solving problems and building things that make a difference.</p>
+        <p>Welcome to my corner of the internet. My name is Eden! I am always looking for something else to learn or a problem to solve.</p>
+        <p><a href="about.html">Learn more about me</a></p>
     </section>
 
-    <section id="skill_set" class="skills">
-        <h2>Skills & Interests</h2>
+    <section id="highlights" class="highlights">
+        <h2>What I'm Into</h2>
         <ul>
             <li>Mathematics</li>
             <li>Cybersecurity</li>
             <li>Programming</li>
-            <li>New interest: Building a PC</li>
+            <li>Building a PC</li>
         </ul>
     </section>
 </main>
 
 <footer>
-    <p>This one's by Eden Tripp.</p>
+    <p>&copy; Eden Tripp</p>
 </footer>
 
 <script>
