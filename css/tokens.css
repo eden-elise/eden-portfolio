@@ -100,10 +100,10 @@
     --nav-text-transform:    none;
     --nav-letter-spacing:    var(--letter-spacing-normal);
     --section-padding:       var(--spacing-3xl) var(--spacing-md);
-    --card-bg:               transparent;
-    --card-border:           none;
+    ---card-bg:      var(--color-bg-secondary);
+    --card-border:  var(--border-width-thin) solid var(--color-border);
+    --card-padding: var(--spacing-lg);
     --card-radius:           var(--border-radius-md);
-    --card-padding:          0;
     --body-bg-image:         none;
     --body-bg-attachment:    scroll;
     --header-border-bottom:  var(--border-width-thin) solid var(--color-border);

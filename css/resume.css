@@ -1,0 +1,350 @@
+/* ==========================================================
+   resume.css — Resume page styles
+   Import this in main.css after components.css:
+   @import "resume.css";
+
+   All values reference design tokens from tokens.css.
+   No hardcoded colours, sizes, or spacing anywhere.
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   NOTE FOR tokens.css
+   The card tokens currently default to transparent/none/0.
+   Update these defaults in tokens.css so cards render
+   correctly even before a theme loads:
+
+   --card-bg:      var(--color-bg-secondary);
+   --card-border:  var(--border-width-thin) solid var(--color-border);
+   --card-padding: var(--spacing-lg);
+   ---------------------------------------------------------- */
+
+/* ----------------------------------------------------------
+   NOTE FOR layout.css or components.css
+   Add this for the skip link to work on every page:
+
+   .skip-link {
+       position: absolute;
+       top: -100%;
+       left: var(--spacing-md);
+       padding: var(--spacing-xs) var(--spacing-md);
+       background-color: var(--color-accent);
+       color: var(--color-bg-primary);
+       border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+       font-size: var(--font-size-sm);
+       font-weight: var(--font-weight-bold);
+       z-index: 1000;
+       transition: top var(--transition-fast) var(--transition-easing);
+   }
+
+   .skip-link:focus {
+       top: 0;
+   }
+   ---------------------------------------------------------- */
+
+
+/* ==========================================================
+   Masthead — contact info + download button
+   ========================================================== */
+
+.resume-masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: var(--border-width) solid var(--color-border);
+}
+
+/*
+    <address> is italic by default in all browsers.
+    The reset does not remove this — we have to.
+    font-style: normal restores it to body text style.
+*/
+.resume-masthead address {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-lg);
+    font-style: normal;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.resume-download {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+    transition: background-color var(--transition-fast) var(--transition-easing);
+}
+
+.resume-download:hover,
+.resume-download:focus-visible {
+    background-color: var(--color-accent-hover);
+    text-decoration: none;
+}
+
+
+/* ==========================================================
+   Section headings — h2 with ruled underline
+   ========================================================== */
+
+/*
+    These are the major resume section headings.
+    We use the section IDs as the ancestor so these rules
+    only apply on the resume page — they won't leak into
+    other pages that happen to use the same h2 styles.
+*/
+/* Tighter layout for resume page */
+#main-content {
+    padding-left: calc(var(--spacing-md) / 2);
+    padding-right: calc(var(--spacing-md) / 2);
+}
+/*minimizing the spacing between each section on the resume without changing the tokens*/
+#education,
+#experience,
+#leadership,
+#skills,
+#additional {
+    padding: calc(var(--spacing-3xl) / 2) calc(var(--spacing-md) / 2);
+}
+
+#education {
+    padding-top: calc(var(--spacing-3xl) / 10);
+}
+
+#education h2,
+#experience h2,
+#leadership h2,
+#skills h2,
+#additional h2 {
+    border-bottom: var(--border-width) solid var(--color-border);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+
+/* ==========================================================
+   Article cards — one card per entry
+   ========================================================== */
+
+#education article,
+#experience article,
+#leadership article {
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/*
+    Remove bottom margin from the last card in each section
+    so there is no double spacing between the card and the
+    next section heading.
+*/
+#education article:last-child,
+#experience article:last-child,
+#leadership article:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   Article header — visually connects role/org to the bullets
+   ========================================================== */
+
+/*
+    A bottom border on the article's <header> creates a clear
+    visual separator between the "who/when" information and
+    the "what you did" bullets below it. This is what makes
+    the bullets feel like they belong to that header.
+*/
+#education article header,
+#experience article header,
+#leadership article header {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: var(--border-width-thin) solid var(--color-border);
+}
+
+/*
+    <hgroup> groups the job title (h3) with its subtitle (org name p).
+    Keep them visually tight — no extra gap between them.
+*/
+#education article hgroup,
+#experience article hgroup,
+#leadership article hgroup {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Job title / institution name */
+#education article hgroup h3,
+#experience article hgroup h3,
+#leadership article hgroup h3 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-heading);
+    margin-bottom: 0;
+}
+
+/*
+    Organisation name — the <p> directly inside <hgroup>.
+    Visually subordinate to the h3 above it.
+*/
+#education article hgroup p,
+#experience article hgroup p,
+#leadership article hgroup p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+}
+
+/*
+    Location + date line — the <p> that is a direct child of
+    <header> but NOT inside <hgroup>. The > combinator is
+    crucial here: without it this rule would also match the
+    org name p nested inside hgroup.
+*/
+#education article header > p,
+#experience article header > p,
+#leadership article header > p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-xs);
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   Degree list — <ul> inside education article <header>
+   ========================================================== */
+
+/*
+    reset.css removes list-style from all lists.
+    Restore disc bullets for the degree list — it reads as
+    a real list, not a tag cloud or navigation.
+*/
+#education article header ul {
+    list-style: disc;
+    padding-left: var(--spacing-lg);
+    margin-top: var(--spacing-xs);
+}
+
+#education article header ul li {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+#education article header ul li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   Bullet lists — job/activity descriptions
+   ========================================================== */
+
+/*
+    The > combinator targets the <ul> that is a DIRECT child
+    of <article>, skipping the degree <ul> nested in <header>.
+    Without > this rule would accidentally match both lists.
+*/
+#education article > ul,
+#experience article ul,
+#leadership article ul {
+    list-style: disc;
+    padding-left: var(--spacing-lg);
+}
+
+#education article > ul li,
+#experience article ul li,
+#leadership article ul li {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-base);
+    margin-bottom: var(--spacing-xs);
+}
+
+#education article > ul li:last-child,
+#experience article ul li:last-child,
+#leadership article ul li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   Skills — pill tags
+   ========================================================== */
+
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    list-style: none;
+    padding: 0;
+}
+
+#skills li {
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--border-radius-full);
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+}
+
+
+/* ==========================================================
+   Additional — description list (dl/dt/dd)
+   ========================================================== */
+
+/*
+    <dl> with multiple <dd> per <dt> cannot use a 2-column grid
+    reliably (the dt would only span 1 row while the dds stack).
+    Simple block layout with indented dds is more correct here.
+*/
+#additional dt {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-heading);
+    font-size: var(--font-size-base);
+    margin-top: var(--spacing-md);
+}
+
+#additional dt:first-child {
+    margin-top: 0;
+}
+
+#additional dd {
+    padding-left: var(--spacing-lg);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    margin-bottom: var(--spacing-xs);
+}
+
+#additional dd:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   Responsive — narrow screens
+   ========================================================== */
+
+@media (max-width: 600px) {
+    .resume-masthead {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .resume-masthead address {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+}
