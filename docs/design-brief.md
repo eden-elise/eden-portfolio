@@ -1,16 +1,15 @@
 # Eden Tripp — Portfolio Design Brief
-**v1.0 · May 2026 · Personal portfolio + coding demo**
+**v2.0 · May 2026 · Personal portfolio + coding demo**
 
 ---
 
 ## Primary Goals
 
-Establish a professional online presence that communicates who Eden is quickly and credibly — for recruiters, classmates, and collaborators — while also being a genuine demonstration of clean, modern web development craft.
-
-- Professional credibility
+- Expressive of my personality
+- Professional credibility but not too serious
 - Clear navigation
-- Showcase coding skills
-- Practice good craft
+- Showcase coding skills(class)
+- Practice good craft(future)
 
 ---
 
@@ -25,49 +24,40 @@ Establish a professional online presence that communicates who Eden is quickly a
 
 ## Site Map
 
-| Route | Page | Status | Notes |
-|---|---|---|---|
-| `/` | Home / About | Required | Name, photo, brief intro. School, degree, interests. First impression in 10 seconds. |
-| `/resume` | Résumé | Required | Full résumé as a real HTML page — not just a PDF link. Semantic structure: education, experience, skills as proper lists. Optional PDF download as enhancement. |
-| `/projects` | Projects | Required | Lists projects. Must include the weather widget demo component. Each entry: title, description, tech stack, link. |
-| `/contact` | Contact | Required | Working contact form via Formspree (free). HTML5 native validation first. Works without JS. |
+| Route | Page | Notes |
+|---|---|---|
+| `/pages/home.html` | Home | Name, interests, time-based greeting. First impression in 10 seconds. |
+| `/pages/about.html` | About | Personal intro, interests, life beyond the code, PDF résumé link. |
+| `/pages/resume.html` | Résumé | Full résumé as a real HTML page — semantic structure throughout. Optional PDF download. |
+| `/pages/projects.html` | Projects | Project cards including the live GitHub Activity widget demo. |
+| `/pages/contact.html` | Contact | Working form via Formspree. HTML5 native validation. Works without JS. |
+| `/pages/building_pc.html` | Building My PC | Ongoing build log — entries added as the build progresses. |
 
 ---
 
 ## Signature Features
 
-### Interactive Flower Bloom
-- SVG flower(s) that bloom on click or hover
-- Built with vanilla JS + CSS animations
-- Progressive enhancement only — decorative, no core content behind it
-- `aria-hidden="true"` and `role="presentation"` on the SVG — screen readers skip it entirely
-- Trigger on both `click` and `keydown` if placed on a focusable element
-- **Extra credit candidate**
-
 ### Theme Switcher
-- Light / dark at minimum (optional: sepia or a third theme)
-- CSS custom properties and `data-theme` attribute on the `<html>` element
-- Persists to `localStorage`
-- Falls back gracefully to `prefers-color-scheme` without JS
-- Inline `<script>` in `<head>` (not deferred) reads localStorage and sets the attribute before paint — prevents flash of wrong theme
-- **Extra credit candidate**
+- Four themes: Rose Garden, Forest Floor, Coastal Fog, Desert Dawn
+- Implemented as a `<theme-picker>` custom element with shadow DOM
+- Split into four modules: component logic, styles, template, i18n strings
+- CSS custom properties and `data-theme` attribute on `<html>`
+- Persists to `localStorage`; falls back to Rose Garden defaults without JS
+- Swatch buttons with tooltips, `aria-pressed` state, `aria-label` for screen readers
 
-### Weather Widget
-- Custom element `<weather-card>` that fetches from Open-Meteo (free, no API key needed — no secrets to accidentally commit)
-- Shows temperature, weather conditions, city name
-- Handles loading state, empty state, and errors gracefully
-- Core of the required web app demo component
-- **Required demo — 20% of grade**
+### GitHub Activity Widget
+- `<github-card>` custom element on the Projects page
+- Fetches from the GitHub REST API — no API key, nothing sensitive in client code
+- `Promise.all` for parallel profile + repos requests
+- Loading state, error state, and success state all handled
+- API data inserted via `textContent` and DOM methods — never `innerHTML`
+- CSS custom properties inherit through the shadow boundary — all four themes restyle it automatically
+- **Required web app demo — 20% of grade**
 
-### Accessibility-First
-- Keyboard navigable throughout
-- WCAG AA color contrast on all text
-- Proper heading order (h1 → h2 → h3, no skipping)
-- Skip-to-content link at the top of every page
-- `aria-live` regions for dynamic content (weather widget updates)
-- Every image has meaningful `alt` text
-- Every form input has an associated `<label>`
-- **10% of grade**
+### Time-Based Greeting
+- Home page `<h2>` updates to "Good morning / afternoon / evening" via `home.js`
+- Falls back to "Hello!" without JS — textbook progressive enhancement
+- Loaded as `type="module"` so it defers automatically without needing placement tricks
 
 ---
 
@@ -75,51 +65,88 @@ Establish a professional online presence that communicates who Eden is quickly a
 
 | Concern | Requirement |
 |---|---|
-| Layer order | Semantic HTML first → CSS enhancement → JS last. Every page must be useful with JS disabled. |
+| Layer order | Semantic HTML first → CSS enhancement → JS last. Every page useful with JS disabled. |
 | CSS | Hand-authored only. Custom properties for all design tokens. Flexbox + grid for layout. `clamp()` for fluid sizing. No Bootstrap, no Tailwind. |
-| JavaScript | Vanilla only. No React, Vue, or Svelte. Web Components (custom elements) preferred for the weather widget. |
-| Tooling | Hand-written HTML or Astro / 11ty SSG. No app framework scaffolds. |
-| Deployment | Cloudflare Pages (preferred) or GitHub Pages. Public GitHub repo. Sensible commit history. |
-| Contact form | Must actually deliver messages. Formspree free tier recommended. Works without JS — native HTML5 validation as the first line of defense. |
+| JavaScript | Vanilla only. No React, Vue, or Svelte. Web Components (custom elements) for the theme picker and GitHub widget. |
+| Deployment | GitHub Pages. Public repo with sensible commit history. |
+| Contact form | Delivers messages via Formspree. HTML5 native validation as first line of defence. Works without JS. |
+
+---
+
+## CSS Architecture
+
+```
+tokens.css        ← all design values live here
+reset.css         ← browser normalisation
+layout.css        ← page shell, header, nav, main, footer
+components.css    ← reusable patterns (links, skip link, headings)
+pages/*.css       ← page-specific overrides
+themes/*.css      ← token overrides per theme
+theme-switcher.css ← positioning for the widget
+main.css          ← imports everything in the correct cascade order
+```
+
+All values reference tokens. No hardcoded colours, spacing, or font sizes outside `tokens.css` and the theme files.
 
 ---
 
 ## Coding Craft Standards
 
 ### Defensive JavaScript
-- Always check that DOM elements exist before using them
+- Always check DOM elements exist before using them (`if (greeting)`)
 - Wrap all `fetch` calls in `try/catch`
-- Validate API responses before attempting to render them
+- Validate API responses (`if (!res.ok) throw new Error(...)`) before rendering
 - Provide fallback content if the API is unavailable
 
 ### Security
-- Never use `innerHTML` with user-supplied or API-supplied data — use `textContent` or DOM methods instead
-- No API secrets or keys in client-side JavaScript
-- Sanitize any dynamic output before inserting into the DOM
+- API data inserted via `textContent` or DOM methods — never `innerHTML`
+- No API keys in client-side code
+- `rel="noopener noreferrer"` on all external links
 
 ### Consistency
-- One CSS naming convention throughout — pick BEM or kebab-case and stick to it
-- Consistent indentation (2 spaces recommended)
-- CSS custom properties for all repeated values: colors, spacing, border-radii, font sizes
+- kebab-case class names throughout
+- CSS custom properties for all repeated values
+- 4-space indentation in HTML, consistent formatting in JS and CSS
 
-### Validation
-- HTML validates at [validator.w3.org](https://validator.w3.org)
-- No stray `<div>` elements where semantic elements belong
-- Headings in logical order — never skip a level
+---
+
+## Accessibility Checklist
+
+- [x] Skip-to-main-content link on every page
+- [x] `aria-current="page"` on active nav link
+- [x] `aria-labelledby` on major sections
+- [x] `aria-live` on GitHub widget loading/error states
+- [x] Logical heading order — no skipped levels
+- [x] All images have `alt` text
+- [x] All form inputs have associated `<label>` elements
+- [x] Keyboard navigable throughout
+- [x] Native HTML5 form validation before JS intervenes
+
+---
+
+## Progressive Enhancement Verification
+
+Open any page, disable JavaScript in DevTools, and reload. You should see:
+
+- All content readable and navigable
+- Navigation working
+- Contact form submittable (Formspree handles it server-side)
+- Rose Garden theme applied via `tokens.css` defaults
+- Home page greeting reads "Hello!" (JS fallback)
+- Projects page shows static project descriptions; GitHub widget area is empty but the footer link to GitHub remains
 
 ---
 
 ## Success Criteria
 
 A visitor lands on the home page and within 10 seconds knows:
-- Your name
-- What you study and where
-- How to reach you
+- my name
+- basic info about me
+- how to reach me
 
 Additionally:
-- The site is fully usable with JavaScript disabled
+- The site is fully usable with JavaScript disabled for progressive enhancement
 - Navigation is clear and consistent on every page
-- The weather widget loads real data, handles errors gracefully, and shows a loading state
-- The flower blooms on click/hover interaction
-- The theme switcher persists the chosen theme between visits
+- The GitHub widget loads real data, handles errors gracefully, and shows a loading state
+- The theme switcher persists between visits
 - The contact form delivers messages and validates without JS
