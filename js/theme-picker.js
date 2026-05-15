@@ -1,5 +1,5 @@
 /**
- * theme-switcher.js — Theme Switching Logic
+ * theme-picker.js — Theme Switching Logic
  *
  * Applies themes via data-theme attribute on <html>,
  * persists choice in localStorage across page reloads.
