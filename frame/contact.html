@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Get in touch with Eden Tripp." />
     <title>Contact | Eden Tripp</title>
     <link rel="stylesheet" href="../css/main.css" />
-    <script src="../js/theme-switcher.js"></script>
+    <script src="../js/theme-switcher.js" defer></script>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header>
     <h1><a href="home.html">Eden Tripp</a></h1>
@@ -15,7 +18,7 @@
         <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="resume.html">Resume</a></li>
+            <li><a href="resume.html">Résumé</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="building_pc.html">Building My PC</a></li>
             <li><a href="contact.html" aria-current="page">Contact</a></li>
@@ -23,13 +26,12 @@
     </nav>
 </header>
 
-<main id="contact-content">
-    <section id="contact-info" class="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out through any of these:</p>
-
+<main id="main-content">
+    <section id="contact-info" aria-labelledby="contact-info-heading">
+        <h2 id="contact-info-heading">Get in Touch</h2>
+        <p>Feel free to reach out through the form below or find me on any of these:</p>
         <address>
-            <ul class="contact-list">
+            <ul>
                 <li>
                     <a href="mailto:edentripp@sandiego.edu">edentripp@sandiego.edu</a>
                 </li>
@@ -46,18 +48,75 @@
             </ul>
         </address>
     </section>
+
+    <section id="contact-form" aria-labelledby="contact-form-heading">
+        <h2 id="contact-form-heading">Send a Message</h2>
+        <!--
+            action points at the Formspree endpoint.
+            method="POST" is required — GET would expose the
+            message content in the URL, which is wrong for forms.
+        -->
+        <form action="https://formspree.io/f/xlgzqjve" method="POST">
+
+            <!--
+                _subject is a Formspree magic field — it sets the
+                subject line of the email you receive.
+                type="hidden" means it's never shown to the user.
+            -->
+            <input type="hidden" name="_subject" value="New message from your portfolio" />
+            <p>
+                <label for="name">Name</label>
+                <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        autocomplete="name"
+                        required
+                        placeholder="Your name"
+                />
+            </p>
+
+            <p>
+                <label for="email">Email</label>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                        placeholder="your@email.com"
+                />
+            </p>
+
+            <p>
+                <label for="message">Message</label>
+                <textarea
+                        id="message"
+                        name="message"
+                        required
+                        minlength="10"
+                        rows="6"
+                        placeholder="What's on your mind?"
+                ></textarea>
+            </p>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+    </section>
+
 </main>
 
-<div class="theme-switcher" aria-label="Theme selector">
+<div class="theme-switcher" role="group" aria-label="Theme selector">
     <span class="theme-switcher__label">Choose a theme</span>
-    <button class="theme-btn" data-theme="rose-garden" data-label="Rose Garden" aria-pressed="false" title="Rose Garden"></button>
-    <button class="theme-btn" data-theme="forest-floor" data-label="Forest Floor" aria-pressed="false" title="Forest Floor"></button>
-    <button class="theme-btn" data-theme="coastal-fog" data-label="Coastal Fog" aria-pressed="false" title="Coastal Fog"></button>
-    <button class="theme-btn" data-theme="desert-dawn" data-label="Desert Dawn" aria-pressed="false" title="Desert Dawn"></button>
+    <button class="theme-btn" data-theme="rose-garden"  aria-label="Rose Garden theme"  aria-pressed="false"></button>
+    <button class="theme-btn" data-theme="forest-floor" aria-label="Forest Floor theme" aria-pressed="false"></button>
+    <button class="theme-btn" data-theme="coastal-fog"  aria-label="Coastal Fog theme"  aria-pressed="false"></button>
+    <button class="theme-btn" data-theme="desert-dawn"  aria-label="Desert Dawn theme"  aria-pressed="false"></button>
 </div>
 
 <footer>
-    <p>&copy; Eden Tripp</p>
+    <p>&copy; <time datetime="2025">2025</time> Eden Tripp</p>
 </footer>
 
 </body>

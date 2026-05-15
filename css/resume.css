@@ -89,18 +89,8 @@
     text-decoration: none;
 }
 
-
-/* ==========================================================
-   Section headings — h2 with ruled underline
-   ========================================================== */
-
-/*
-    These are the major resume section headings.
-    We use the section IDs as the ancestor so these rules
-    only apply on the resume page — they won't leak into
-    other pages that happen to use the same h2 styles.
-*/
-/* Tighter layout for resume page */
+/*section IDs as the ancestor so these rules only apply on the resume page */
+/* tighter layout for resume page */
 #main-content {
     padding-left: calc(var(--spacing-md) / 2);
     padding-right: calc(var(--spacing-md) / 2);
