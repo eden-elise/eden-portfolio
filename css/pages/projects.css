@@ -71,3 +71,8 @@
     font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-xl);
 }
+
+/* suppress decorative underline that comes with all h2*/
+main.projects-layout > h2::after {
+    display: none;
+}
