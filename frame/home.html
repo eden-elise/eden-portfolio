@@ -6,6 +6,7 @@
     <title>Eden Tripp | Portfolio</title>
     <link rel="stylesheet" href="../css/main.css" />
     <script type="module" src="../js/theme-picker.js"></script>
+    <script type="module" src="../js/home.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#home-content">Skip to main content</a>
@@ -15,7 +16,7 @@
         <ul>
             <li><a href="home.html" aria-current="page">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="resume.html">Resume</a></li>
+            <li><a href="resume.html">Résumé</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="building_pc.html">Building My PC</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -46,19 +47,5 @@
 <footer>
     <p>&copy; Eden Tripp</p>
 </footer>
-
-<script>
-    const hour = new Date().getHours();
-    const greeting = document.getElementById('greeting');
-
-    if (hour < 12) {
-        greeting.textContent = "Good morning!";
-    } else if (hour < 18) {
-        greeting.textContent = "Good afternoon!";
-    } else {
-        greeting.textContent = "Good evening!";
-    }
-</script>
-
 </body>
 </html>
