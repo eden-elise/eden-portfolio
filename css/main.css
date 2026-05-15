@@ -2,7 +2,8 @@
 @import "tokens.css";
 @import "layout.css";
 @import "components.css";
-@import "resume.css";
+@import "pages/resume.css";
+@import "pages/contacts.css";
 
 /* Themes — each overrides token values via [data-theme] selectors */
 @import "themes/rose-garden.css";

@@ -1,0 +1,20 @@
+.contact-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--spacing-2xl);
+}
+
+#contact-info,
+#contact-form {
+    flex: 1;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@media (max-width: 600px) {
+    .contact-layout {
+        flex-direction: column;
+    }
+}
