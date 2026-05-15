@@ -26,9 +26,16 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: var(--spacing-md);
     margin-top: var(--spacing-md);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact-info address ul li {
+    width: 100%;
 }
 
 #contact-info > p {
@@ -36,8 +43,23 @@
 }
 
 #contact-info address a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-bg-accent);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--border-radius-full);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-bold);
+    transition: background-color var(--transition-fast) var(--transition-easing),
+    transform var(--transition-fast) var(--transition-easing);
+}
+
+#contact-info address a:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    transform: scale(1.03);
 }
 
 /* ----- Form layout ----- */
