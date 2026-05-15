@@ -4,6 +4,7 @@
 @import "components.css";
 @import "pages/resume.css";
 @import "pages/contacts.css";
+@import "pages/projects.css";
 
 /* Themes — each overrides token values via [data-theme] selectors */
 @import "themes/rose-garden.css";

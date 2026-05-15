@@ -1,0 +1,73 @@
+/* ----- Grid layout ----- */
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    /* Override the huge default section padding */
+    padding-bottom: var(--spacing-lg);
+}
+
+/* ----- Project card ----- */
+
+.project-card {
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    transition: box-shadow var(--transition-fast) var(--transition-easing),
+    transform var(--transition-fast) var(--transition-easing);
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.project-card header h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.project-card header p {
+    margin-bottom: 0;
+}
+
+/* ----- Iframe embed ----- */
+
+.project-card iframe {
+    width: 100%;
+    height: 14rem;
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-bg-primary);
+}
+
+
+.project-card footer {
+    margin-top: auto;
+    padding-top: var(--spacing-sm);
+    border-top: var(--border-width-thin) solid var(--color-border);
+}
+
+.project-card footer a {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+}
+
+.projects-layout > h2 {
+    text-align: center;
+    border-bottom: var(--border-width) solid var(--color-border);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.projects-layout > p {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+}
