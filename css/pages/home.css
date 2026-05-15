@@ -1,0 +1,131 @@
+/* ==========================================================
+   home.css — Home page styles
+   @import in main.css after components.css
+   ========================================================== */
+
+/* ----- Two-column layout ----- */
+
+#home-content {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: stretch;
+}
+
+/* ----- Both sections as matching cards ----- */
+
+#hero,
+#highlights {
+    flex: 1;
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: none;
+    margin: 0;
+}
+
+/* ----- Hero text ----- */
+
+#hero h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+}
+
+#hero p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+#hero p:last-child {
+    margin-bottom: 0;
+}
+
+/* ----- Suppress decorative h2 underline on both cards ----- */
+
+#hero h2::after,
+#highlights h2::after,
+#hero h2::before,
+#highlights h2::before {
+    display: none;
+}
+
+/* ----- Skills list ----- */
+
+#highlights h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+#highlights ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+#highlights li {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+#highlights li::before {
+    content: var(--list-marker, "›");
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 600px) {
+    #home-content {
+        flex-direction: column;
+    }
+}
+
+#highlights {
+    justify-content: space-evenly;
+    align-items: center;
+    padding: var(--spacing-sm);
+}
+
+#highlights h2 {
+    text-align: center;
+    width: 100%;
+    font-size: var(--font-size-3xl);
+    margin-bottom: 0;
+}
+
+#highlights ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    gap: var(--spacing-lg);
+}
+
+#highlights li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-left: 0;
+    position: static;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xl);
+}
+
+#highlights li::before {
+    position: static;
+    flex-shrink: 0;
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+}

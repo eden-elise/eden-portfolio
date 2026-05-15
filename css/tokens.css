@@ -101,7 +101,7 @@
     --nav-font-weight:       var(--font-weight-bold);
     --nav-text-transform:    none;
     --nav-letter-spacing:    var(--letter-spacing-normal);
-    --section-padding:       var(--spacing-3xl) var(--spacing-md);
+    --section-padding:       var(--spacing-xl) var(--spacing-md);
     --card-bg:      var(--color-bg-secondary);
     --card-border:  var(--border-width-thin) solid var(--color-border);
     --card-padding: var(--spacing-lg);
