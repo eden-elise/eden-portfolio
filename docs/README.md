@@ -105,13 +105,13 @@ portfolio/
 - `https://api.github.com/users/eden-elise/repos?sort=updated` — repository list
 
 **What it demonstrates:**
-- Custom element (`customElements.define`) with shadow DOM
+- Three coordinated custom elements (`<theme-picker>`, `<github-card>`, `<site-footer>`) across all pages
+- Custom element lifecycle callbacks (`connectedCallback`, `attributeChangedCallback`, `disconnectedCallback`)
+- Shadow DOM encapsulation with CSS custom properties inheriting through the boundary
 - `fetch` with `async/await` and `Promise.all` for parallel requests
 - JSON parsing and structured error handling
-- Loading, success, and error states with appropriate ARIA (`role="status"`, `role="alert"`, `aria-live`)
-- Safe DOM construction — API data inserted via `textContent` and DOM methods, never `innerHTML`
-- CSS custom properties inheriting through the shadow boundary so all four themes restyle the widget automatically
-
+- Loading, success, and error states with appropriate ARIA
+- Safe DOM construction — API data via `textContent` and DOM methods, never `innerHTML`
 **Progressive enhancement:** The Projects page displays static project descriptions without JavaScript. The GitHub widget is an additive enhancement — if the fetch fails or JS is disabled, the rest of the page is unaffected and a direct GitHub link remains visible in the card footer.
 
 ---
@@ -131,6 +131,10 @@ A `<theme-picker>` custom element fixed to the bottom-right corner of every page
 
 ### Time-Based Greeting
 The home page `<h2>` reads "Good morning / afternoon / evening" based on the visitor's local time. Without JavaScript it falls back to "Hello!" — a clean example of progressive enhancement.
+
+### Site Footer
+A `<site-footer>` custom element that renders a consistent footer across every page. The copyright year is generated at runtime via JavaScript so it never needs manual updating. Combined with `<theme-picker>` and `<github-card>`, the site uses three coordinated custom elements across all pages — each demonstrating shadow DOM encapsulation, CSS custom property inheritance through the shadow boundary, and the custom elements lifecycle API.
+
 
 ---
 
