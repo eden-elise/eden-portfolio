@@ -7,6 +7,7 @@
     <title>Projects | Eden Tripp</title>
     <link rel="stylesheet" href="../css/main.css" />
     <script type="module" src="../js/theme-picker.js"></script>
+    <script type="module" src="../js/github-card.js"></script>
 </head>
 <body>
 
@@ -71,9 +72,13 @@
 
         <article class="project-card">
             <header>
-                <h3>GitHub Profile</h3>
-                <p>View my code and open-source contributions.</p>
+                <h3>GitHub Activity</h3>
+                <p>Live stats pulled from the GitHub API — recent repos,
+                    follower count, and more.</p>
             </header>
+
+            <github-card username="eden-elise" max-repos="3"></github-card>
+
             <footer>
                 <a href="https://github.com/eden-elise"
                    target="_blank"
