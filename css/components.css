@@ -208,3 +208,26 @@ footer a {
 footer a:hover {
     opacity: 0.8;
 }
+
+/* ----- skip link ----- */
+.skip-link {
+    position: fixed;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    z-index: 9999;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-md);
+    white-space: nowrap;
+    transform: translateY(-200%);
+    transition: transform var(--transition-fast) var(--transition-easing);
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
