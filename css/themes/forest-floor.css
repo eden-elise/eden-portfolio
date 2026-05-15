@@ -17,10 +17,10 @@
     --color-text-primary:    #2D3A2E;
     --color-text-secondary:  #4a5a4c;
     --color-text-heading:    #2D3A2E;
-    --color-accent:          #5C7A5E;
+    --color-accent:     #3d5e3f;
     --color-accent-hover:    #6d8e70;
-    --color-link:            #5C7A5E;
-    --color-link-hover:      #2D3A2E;
+    --color-link:       #3d5e3f;  /* was #5C7A5E */
+    --color-link-hover: #3d5e3f;
     --color-header-bg:       #D4C9B0;
     --color-header-text:     #2D3A2E;
     --color-footer-bg:       #2D3A2E;

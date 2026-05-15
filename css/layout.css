@@ -70,14 +70,14 @@ main {
     padding: var(--spacing-md);
 }
 
-#home-content {
+.home-layout {
     display: flex;
     gap: var(--spacing-xl);
     align-items: flex-start;
 }
 
-#home-content .hero,
-#home-content .highlights {
+.home-layout .hero,
+.home-layout .highlights {
     flex: 1;
     max-width: none;
     margin-left: 0;
@@ -139,7 +139,7 @@ footer {
         padding: var(--spacing-xl) var(--spacing-sm);
     }
 
-    #home-content {
+    .home-layout {
         flex-direction: column;
     }
 }

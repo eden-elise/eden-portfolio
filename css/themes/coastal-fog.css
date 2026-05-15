@@ -22,8 +22,8 @@
     --color-text-heading:    #3B4856;
     --color-accent:          #7A9BAE;
     --color-accent-hover:    #5d8498;
-    --color-link:            #7A9BAE;
-    --color-link-hover:      #3B4856;
+    --color-link:       #3a6d87;  /* was #7A9BAE */
+    --color-link-hover: #3a6d87;
     --color-header-bg:       #F0EDE8;
     --color-header-text:     #3B4856;
     --color-footer-bg:       #3B4856;

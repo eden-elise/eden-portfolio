@@ -5,7 +5,7 @@
 
 /* ----- Two-column layout ----- */
 
-#home-content {
+.home-layout {
     display: flex;
     gap: var(--spacing-xl);
     align-items: stretch;
@@ -85,7 +85,7 @@
 /* ----- Responsive ----- */
 
 @media (max-width: 600px) {
-    #home-content {
+    .home-layout {
         flex-direction: column;
     }
 }
