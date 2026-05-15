@@ -109,60 +109,90 @@ class GitHubCard extends HTMLElement {
     }
 
     _renderCard(user, repos) {
-        const repoItems = repos.length
-            ? repos.map(r => `
-                <li class="repo">
-                    <a href="${r.html_url}" target="_blank" rel="noopener noreferrer">
-                        ${r.name}
-                    </a>
-                    ${r.description
-                ? `<p class="repo__desc">${r.description}</p>`
-                : ''}
-                    <p class="repo__meta">
-                        ${r.language ? `<span>${r.language}</span>` : ''}
-                        <span>⭐ ${r.stargazers_count}</span>
-                    </p>
-                </li>`).join('')
-            : '<li class="repo repo--empty">No public repos yet.</li>';
-
+        // Structure is yours — innerHTML is fine here
         this.shadowRoot.innerHTML = `
-            ${this._styles()}
-
-            <div class="card">
-                <div class="profile">
-                    <img
-                        class="avatar"
-                        src="${user.avatar_url}"
-                        alt="${user.login}'s GitHub avatar"
-                        width="64"
-                        height="64"
-                    />
-                    <div class="profile__info">
-                        <a class="profile__name"
-                           href="${user.html_url}"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            ${user.name || user.login}
-                        </a>
-                        ${user.bio ? `<p class="profile__bio">${user.bio}</p>` : ''}
-                        <p class="profile__stats">
-                            <span>${user.public_repos} repos</span>
-                            <span>${user.followers} followers</span>
-                        </p>
-                    </div>
+        ${this._styles()}
+        <div class="card">
+            <div class="profile">
+                <img class="avatar" width="64" height="64" />
+                <div class="profile__info">
+                    <a class="profile__name" target="_blank" rel="noopener noreferrer"></a>
+                    <p class="profile__bio"></p>
+                    <p class="profile__stats">
+                        <span class="stat-repos"></span>
+                        <span class="stat-followers"></span>
+                    </p>
                 </div>
+            </div>
+            <ul class="repo-list" aria-label="Recent repositories"></ul>
+            <a class="view-all" target="_blank" rel="noopener noreferrer">View all on GitHub →</a>
+        </div>`;
 
-                <ul class="repo-list" aria-label="Recent repositories">
-                    ${repoItems}
-                </ul>
+        // Data from the API — textContent only, never innerHTML
+        const root = this.shadowRoot;
 
-                <a class="view-all"
-                   href="${user.html_url}"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View all on GitHub →
-                </a>
-            </div>`;
+        const avatar = root.querySelector('.avatar');
+        avatar.src = user.avatar_url;
+        avatar.alt = `${user.login}'s GitHub avatar`;
+
+        const nameLink = root.querySelector('.profile__name');
+        nameLink.href = user.html_url;
+        nameLink.textContent = user.name || user.login;
+
+        const bio = root.querySelector('.profile__bio');
+        if (user.bio) {
+            bio.textContent = user.bio;
+        } else {
+            bio.remove();
+        }
+
+        root.querySelector('.stat-repos').textContent = `${user.public_repos} repos`;
+        root.querySelector('.stat-followers').textContent = `${user.followers} followers`;
+
+        root.querySelector('.view-all').href = user.html_url;
+
+        // Build repo items the same way
+        const list = root.querySelector('.repo-list');
+        if (repos.length === 0) {
+            const li = document.createElement('li');
+            li.className = 'repo repo--empty';
+            li.textContent = 'No public repos yet.';
+            list.append(li);
+            return;
+        }
+
+        for (const r of repos) {
+            const li = document.createElement('li');
+            li.className = 'repo';
+
+            const link = document.createElement('a');
+            link.href = r.html_url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = r.name;           // API data → textContent
+            li.append(link);
+
+            if (r.description) {
+                const desc = document.createElement('p');
+                desc.className = 'repo__desc';
+                desc.textContent = r.description; // API data → textContent
+                li.append(desc);
+            }
+
+            const meta = document.createElement('p');
+            meta.className = 'repo__meta';
+            if (r.language) {
+                const lang = document.createElement('span');
+                lang.textContent = r.language;    // API data → textContent
+                meta.append(lang);
+            }
+            const stars = document.createElement('span');
+            stars.textContent = `⭐ ${r.stargazers_count}`;
+            meta.append(stars);
+            li.append(meta);
+
+            list.append(li);
+        }
     }
 
     // ── Styles ───────────────────────────────────────────────────
