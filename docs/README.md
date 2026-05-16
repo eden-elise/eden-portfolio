@@ -19,6 +19,10 @@ A personal portfolio site built with plain HTML, CSS, and vanilla JavaScript. No
 
 ---
 
+## Deployment Note
+
+The HTML pages live in a `frame/` subdirectory rather than the repo root. Cloudflare Pages requires an `index.html` at the root to serve as an entry point, so a minimal redirect file lives at the root and forwards visitors to `frame/home.html` using a `<meta http-equiv="refresh">` tag. The redirect uses an absolute path (`/frame/home.html`) to prevent relative path loops.
+
 ## Running Locally
 
 No build step required. Clone the repo and open any page directly in your browser:
