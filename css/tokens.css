@@ -9,20 +9,20 @@
 
 :root {
     /* ===== COLOR PALETTE ===== */
+    --color-text-secondary:  #473c46;  /* was #837e84 */
+    --color-link:            #6b4f5a;  /* was #836871 */
+    --color-link-hover:      #6b4f5a;  /* was #917f88 */
+    --color-footer-bg:       #6b4f5a;  /* was #836871 */
+    --color-footer-text:     #f5ebe6;  /* was #ebd7ce */
     --color-bg-primary:      #ebd7ce;
     --color-bg-secondary:    #f5ebe6;
     --color-bg-accent:       #cdadab;
     --color-text-primary:    #4a4148;
-    --color-text-secondary:  #837e84;
     --color-text-heading:    #836871;
     --color-accent:          #917f88;
     --color-accent-hover:    #a3929a;
-    --color-link:            #836871;
-    --color-link-hover:      #917f88;
     --color-header-bg:       #cdadab;
     --color-header-text:     #4a4148;
-    --color-footer-bg:       #836871;
-    --color-footer-text:     #ebd7ce;
     --color-border:          #917f88;
     --color-shadow:          rgba(131, 104, 113, 0.15);
     --color-overlay:         rgba(131, 104, 113, 0.05);
