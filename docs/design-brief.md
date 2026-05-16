@@ -70,7 +70,7 @@
 | JavaScript | Vanilla only. No React, Vue, or Svelte. Web Components (custom elements) for the theme picker and GitHub widget. |
 | Deployment | GitHub Pages. Public repo with sensible commit history. |
 | Contact form | Delivers messages via Formspree. HTML5 native validation as first line of defence. Works without JS. |
-
+| Root redirect | `index.html` at repo root uses `<meta http-equiv="refresh">` to forward to `frame/home.html` — required by Cloudflare Pages which expects an entry point at the root |
 ---
 
 ## CSS Architecture
