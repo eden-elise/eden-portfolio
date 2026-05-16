@@ -2,8 +2,8 @@
 
 A personal portfolio site built with plain HTML, CSS, and vanilla JavaScript. No frameworks, no build step, no dependencies.
 
-🔗 **Live site:** [eden-elise.github.io/portfolio](https://eden-elise.github.io/portfolio)  
-📁 **Repository:** [github.com/eden-elise/portfolio](https://github.com/eden-elise/portfolio)
+🔗 **Live site:** [eden-portfolio-3fs.pages.dev](https://eden-portfolio-3fs.pages.dev)  
+📁 **Repository:** [github.com/eden-elise/eden-portfolio](https://github.com/eden-elise/eden-portfolio)
 
 ---
 
@@ -11,11 +11,11 @@ A personal portfolio site built with plain HTML, CSS, and vanilla JavaScript. No
 
 | Concern | Choice | Why |
 |---|---|---|
-| Markup | Semantic HTML5 | validates at W3C |
+| Markup | Semantic HTML5 | Hand-authored, validates at W3C |
 | Styling | Vanilla CSS | Custom properties, flexbox, grid, `clamp()` — no frameworks |
-| Behavior | Vanilla JavaScript | Progressive enhancement  |
+| Behavior | Vanilla JavaScript | Progressive enhancement — site works without it |
 | Contact form | [Formspree](https://formspree.io) | Free tier, no server needed, works without JS |
-| Deployment | GitHub Pages | Simple static hosting from the `main` branch |
+| Deployment | Cloudflare Pages | Fast global CDN, auto-deploys from `main` branch |
 
 ---
 
@@ -24,9 +24,9 @@ A personal portfolio site built with plain HTML, CSS, and vanilla JavaScript. No
 No build step required. Clone the repo and open any page directly in your browser:
 
 ```bash
-git clone https://github.com/eden-elise/portfolio.git
-cd portfolio
-open pages/home.html
+git clone https://github.com/eden-elise/eden-portfolio.git
+cd eden-portfolio
+open frame/home.html
 ```
 
 Or serve it with any local static server for accurate relative paths:
@@ -39,15 +39,16 @@ python3 -m http.server 8080
 npx serve .
 ```
 
-Then visit `http://localhost:8080/pages/home.html` in your browser.
+Then visit `http://localhost:8080/frame/home.html` in your browser.
 
 ---
 
 ## Project Structure
 
 ```
-portfolio/
-├── pages/
+eden-portfolio/
+├── index.html              # Root redirect to frame/home.html
+├── frame/
 │   ├── home.html           # Home page with time-based greeting
 │   ├── about.html          # About me
 │   ├── resume.html         # Résumé as a real HTML page (+ PDF download)
@@ -72,12 +73,13 @@ portfolio/
 │       ├── coastal-fog.css  # Cool blues and greys
 │       └── desert-dawn.css  # Warm terracotta and sand
 ├── js/
-│   ├── theme-picker.js         # ThemePicker custom element
-│   ├── theme-picker-styles.js  # Scoped styles for the widget
+│   ├── theme-picker.js          # ThemePicker custom element
+│   ├── theme-picker-styles.js   # Scoped styles for the widget
 │   ├── theme-picker-template.js # HTML template for the widget
-│   ├── theme-picker-i18n.js    # Translation strings
-│   ├── github-card.js          # GitHubCard custom element (API demo)
-│   └── home.js                 # Time-based greeting enhancement
+│   ├── theme-picker-i18n.js     # Translation strings
+│   ├── github-card.js           # GitHubCard custom element (API demo)
+│   ├── site-footer.js           # SiteFooter custom element
+│   └── home.js                  # Time-based greeting enhancement
 └── assets/
     ├── images/             # Photos and graphics
     └── resume/             # Downloadable PDF résumé
@@ -87,12 +89,12 @@ portfolio/
 
 ## Pages
 
-- **`/pages/home.html`** — Landing page with a time-aware greeting and a summary of interests
-- **`/pages/about.html`** — Personal introduction, interests, and life beyond the code
-- **`/pages/resume.html`** — Full résumé as a real HTML page with semantic structure; PDF download available
-- **`/pages/projects.html`** — Project cards including the live GitHub Activity widget
-- **`/pages/contact.html`** — Working contact form (submits via Formspree) plus direct contact links
-- **`/pages/building_pc.html`** — Ongoing PC build log (entries added as the build progresses)
+- **`/frame/home.html`** — Landing page with a time-aware greeting and a summary of interests
+- **`/frame/about.html`** — Personal introduction, interests, and life beyond the code
+- **`/frame/resume.html`** — Full résumé as a real HTML page with semantic structure; PDF download available
+- **`/frame/projects.html`** — Project cards including the live GitHub Activity widget
+- **`/frame/contact.html`** — Working contact form (submits via Formspree) plus direct contact links
+- **`/frame/building_pc.html`** — Ongoing PC build log (entries added as the build progresses)
 
 ---
 
@@ -112,6 +114,7 @@ portfolio/
 - JSON parsing and structured error handling
 - Loading, success, and error states with appropriate ARIA
 - Safe DOM construction — API data via `textContent` and DOM methods, never `innerHTML`
+
 **Progressive enhancement:** The Projects page displays static project descriptions without JavaScript. The GitHub widget is an additive enhancement — if the fetch fails or JS is disabled, the rest of the page is unaffected and a direct GitHub link remains visible in the card footer.
 
 ---
@@ -135,7 +138,6 @@ The home page `<h2>` reads "Good morning / afternoon / evening" based on the vis
 ### Site Footer
 A `<site-footer>` custom element that renders a consistent footer across every page. The copyright year is generated at runtime via JavaScript so it never needs manual updating. Combined with `<theme-picker>` and `<github-card>`, the site uses three coordinated custom elements across all pages — each demonstrating shadow DOM encapsulation, CSS custom property inheritance through the shadow boundary, and the custom elements lifecycle API.
 
-
 ---
 
 ## Accessibility
@@ -149,6 +151,7 @@ A `<site-footer>` custom element that renders a consistent footer across every p
 - All images have descriptive `alt` text
 - All form inputs have associated `<label>` elements
 - Native HTML5 form validation (`required`, `type="email"`, `minlength`) before any JavaScript
+- WCAG AA color contrast on all four themes
 
 ---
 
@@ -159,6 +162,7 @@ Every page is fully readable and navigable with JavaScript disabled. JavaScript 
 - Theme switching and persistence
 - The GitHub Activity widget
 - The time-based greeting
+- The site footer with dynamic copyright year
 
 To verify: open any page in your browser, disable JavaScript in DevTools (Settings → Debugger → Disable JavaScript), and reload.
 
