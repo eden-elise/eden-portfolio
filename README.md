@@ -67,10 +67,11 @@ eden-portfolio/
 │   ├── components.css      # Reusable UI patterns (links, skip link, etc.)
 │   ├── theme-switcher.css  # Positioning for the theme-picker widget
 │   ├── pages/
-│   │   ├── home.css        # Home page two-column layout
-│   │   ├── resume.css      # Résumé cards, masthead, skills pills
-│   │   ├── projects.css    # Project card grid
-│   │   └── contacts.css    # Contact two-column layout and form styles
+│   │   ├── home.css         # Home page two-column layout
+│   │   ├── resume.css       # Résumé cards, masthead, skills pills
+│   │   ├── projects.css     # Project card grid
+│   │   ├── contacts.css     # Contact two-column layout and form styles
+│   │   └── building_pc.css  # Build log entry cards and phase label pills
 │   └── themes/
 │       ├── rose-garden.css  # Default theme — soft pinks and purples
 │       ├── forest-floor.css # Earthy greens and browns
@@ -84,7 +85,9 @@ eden-portfolio/
 │   ├── github-card.js           # GitHubCard custom element (API demo)
 │   ├── site-footer.js           # SiteFooter custom element
 │   ├── bloom-flower.js          # BloomFlower custom element (decorative header animation)
-│   └── home.js                  # Time-based greeting enhancement
+│   ├── home.js                  # Time-based greeting enhancement
+│   ├── pc-build-entries.js      # Blog entry data — add new entries here
+│   └── pc-build-log.js          # Renders build log entries into the DOM
 └── assets/
     ├── images/             # Photos and graphics
     └── resume/             # Downloadable PDF résumé and research pr0ject
@@ -99,7 +102,7 @@ eden-portfolio/
 - **`/frame/resume.html`** — Full résumé as a real HTML page with semantic structure; PDF download available
 - **`/frame/projects.html`** — Project cards including the live GitHub Activity widget
 - **`/frame/contact.html`** — Working contact form (submits via Formspree) plus direct contact links
-- **`/frame/building_pc.html`** — Ongoing PC build log (entries added as the build progresses)
+- **`/frame/building_pc.html`** — PC build journal: a JS-driven blog log where each entry is authored in `js/pc-build-entries.js` and rendered at runtime, sorted newest-first
 
 ---
 
@@ -140,6 +143,9 @@ A `<theme-picker>` custom element fixed to the bottom-right corner of every page
 ### Bloom Flower
 A `<bloom-flower>` custom element that renders a purely decorative CSS flower in the top-left corner of the header on every page. Six petals animate outward sequentially on page load using `@keyframes` and staggered `animation-delay`, followed by the center circle popping in. Petal and center colors reference `--color-text-heading` and `--color-bg-accent` respectively, so the flower automatically recolors whenever the visitor switches themes — no JavaScript required for the color change. The element is marked `aria-hidden="true"` so screen readers ignore it entirely. The animation is suppressed for visitors who have `prefers-reduced-motion` enabled, showing the flower in its final bloomed state instead.
 
+### PC Build Journal
+The Building My PC page is a data-driven blog log. Entries are defined as plain objects in `js/pc-build-entries.js` — each with an `id`, ISO date, short phase label, title, and HTML body. `js/pc-build-log.js` reads the array, sorts entries newest-first, and renders them into the DOM as semantic `<article>` elements with a `<time datetime>` attribute and a phase label pill. Each entry's `id` is used as an anchor so individual entries can be deep-linked (e.g. `building_pc.html#first-boot`). To add a new entry, drop a new object into the array — no HTML editing required. A `<noscript>` fallback is present for visitors with JavaScript disabled.
+
 ### Time-Based Greeting
 The home page `<h2>` reads "Good morning / afternoon / evening" based on the visitor's local time. Without JavaScript it falls back to "Hello!" — a clean example of progressive enhancement.
 
@@ -174,6 +180,7 @@ Every page is fully readable and navigable with JavaScript disabled. JavaScript 
 - The time-based greeting
 - The site footer with dynamic copyright year (a `<noscript>` fallback footer is always present)
 - The bloom flower header animation
+- The PC build journal entries (a `<noscript>` fallback message is present)
 
 To verify: open any page in your browser, disable JavaScript in DevTools (Settings → Debugger → Disable JavaScript), and reload.
 
