@@ -6,6 +6,7 @@
 @import "pages/contacts.css";
 @import "pages/projects.css";
 @import "pages/home.css";
+@import "pages/building_pc.css";
 
 /* Themes — each overrides token values via [data-theme] selectors */
 @import "themes/rose-garden.css";
