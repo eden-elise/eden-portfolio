@@ -1,6 +1,3 @@
-Here is your fully updated README with all the changes from this session incorporated. Just copy and paste the whole thing:
-
-```markdown
 # Eden Tripp — Personal Portfolio
 
 A personal portfolio site built with plain HTML, CSS, and vanilla JavaScript. No frameworks, no build step, no dependencies.
