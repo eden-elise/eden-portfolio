@@ -1,3 +1,6 @@
+Here is your fully updated README with all the changes from this session incorporated. Just copy and paste the whole thing:
+
+```markdown
 # Eden Tripp — Personal Portfolio
 
 A personal portfolio site built with plain HTML, CSS, and vanilla JavaScript. No frameworks, no build step, no dependencies.
@@ -83,10 +86,11 @@ eden-portfolio/
 │   ├── theme-picker-i18n.js     # Translation strings
 │   ├── github-card.js           # GitHubCard custom element (API demo)
 │   ├── site-footer.js           # SiteFooter custom element
+│   ├── bloom-flower.js          # BloomFlower custom element (decorative header animation)
 │   └── home.js                  # Time-based greeting enhancement
 └── assets/
     ├── images/             # Photos and graphics
-    └── resume/             # Downloadable PDF résumé
+    └── resume/             # Downloadable PDF résumé and research pr0ject
 ```
 
 ---
@@ -111,7 +115,7 @@ eden-portfolio/
 - `https://api.github.com/users/eden-elise/repos?sort=updated` — repository list
 
 **What it demonstrates:**
-- Three coordinated custom elements (`<theme-picker>`, `<github-card>`, `<site-footer>`) across all pages
+- Four coordinated custom elements (`<theme-picker>`, `<github-card>`, `<site-footer>`, `<bloom-flower>`) across all pages
 - Custom element lifecycle callbacks (`connectedCallback`, `attributeChangedCallback`, `disconnectedCallback`)
 - Shadow DOM encapsulation with CSS custom properties inheriting through the boundary
 - `fetch` with `async/await` and `Promise.all` for parallel requests
@@ -136,11 +140,14 @@ A `<theme-picker>` custom element fixed to the bottom-right corner of every page
 | Coastal Fog | Cool blues and greys, wide airy spacing, animated fade-up sections |
 | Desert Dawn | Warm terracotta, bold Impact headings, geometric borders |
 
+### Bloom Flower
+A `<bloom-flower>` custom element that renders a purely decorative CSS flower in the top-left corner of the header on every page. Six petals animate outward sequentially on page load using `@keyframes` and staggered `animation-delay`, followed by the center circle popping in. Petal and center colors reference `--color-text-heading` and `--color-bg-accent` respectively, so the flower automatically recolors whenever the visitor switches themes — no JavaScript required for the color change. The element is marked `aria-hidden="true"` so screen readers ignore it entirely. The animation is suppressed for visitors who have `prefers-reduced-motion` enabled, showing the flower in its final bloomed state instead.
+
 ### Time-Based Greeting
 The home page `<h2>` reads "Good morning / afternoon / evening" based on the visitor's local time. Without JavaScript it falls back to "Hello!" — a clean example of progressive enhancement.
 
 ### Site Footer
-A `<site-footer>` custom element that renders a consistent footer across every page. The copyright year is generated at runtime via JavaScript so it never needs manual updating. Combined with `<theme-picker>` and `<github-card>`, the site uses three coordinated custom elements across all pages — each demonstrating shadow DOM encapsulation, CSS custom property inheritance through the shadow boundary, and the custom elements lifecycle API.
+A `<site-footer>` custom element that renders a consistent footer across every page. The copyright year is generated at runtime via JavaScript so it never needs manual updating. A `<noscript>` fallback renders a plain `<footer>` for visitors with JavaScript disabled so the page is never left without a footer. Combined with `<theme-picker>`, `<github-card>`, and `<bloom-flower>`, the site uses four coordinated custom elements across all pages — each demonstrating shadow DOM encapsulation, CSS custom property inheritance through the shadow boundary, and the custom elements lifecycle API.
 
 ---
 
@@ -156,6 +163,8 @@ A `<site-footer>` custom element that renders a consistent footer across every p
 - All form inputs have associated `<label>` elements
 - Native HTML5 form validation (`required`, `type="email"`, `minlength`) before any JavaScript
 - WCAG AA color contrast on all four themes
+- Decorative elements marked `aria-hidden="true"` to avoid screen reader noise
+- `prefers-reduced-motion` respected — the bloom flower skips its animation for users who prefer reduced motion
 
 ---
 
@@ -166,7 +175,8 @@ Every page is fully readable and navigable with JavaScript disabled. JavaScript 
 - Theme switching and persistence
 - The GitHub Activity widget
 - The time-based greeting
-- The site footer with dynamic copyright year
+- The site footer with dynamic copyright year (a `<noscript>` fallback footer is always present)
+- The bloom flower header animation
 
 To verify: open any page in your browser, disable JavaScript in DevTools (Settings → Debugger → Disable JavaScript), and reload.
 
@@ -175,3 +185,4 @@ To verify: open any page in your browser, disable JavaScript in DevTools (Settin
 ## License
 
 MIT — feel free to use this as a reference or starting point.
+```
